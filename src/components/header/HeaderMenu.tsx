@@ -1,10 +1,17 @@
 import HeaderButton from "@/components/header/HeaderButton";
+import Link from "next/link";
 
-export default function HeaderMenu(){
+type Props = {
+    onLoginClick?: () => void;
+}
+export default function HeaderMenu({onLoginClick}:Props){
     return(
         <div className="flex md:flex space-x-4">
-            <HeaderButton>Увійти</HeaderButton>
-            <HeaderButton>Зареєструватись</HeaderButton>
+            <HeaderButton onClick={onLoginClick}>Увійти</HeaderButton>
+            <Link href="/registration">
+                <HeaderButton>Зареєструватись</HeaderButton>
+            </Link>
+
         </div>
     )
 }
