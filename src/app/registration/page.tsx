@@ -1,10 +1,7 @@
 'use client'
 import axios from 'axios'
-import { useEffect } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
 
-axios.defaults.withCredentials = true;
-axios.defaults.withXSRFToken = true;
 
 type Inputs = {
     name: string
@@ -24,28 +21,12 @@ export default function Registration() {
 
     const password = watch("password");
 
-    // Викликається при відкритті сторінки
-    useEffect(() => {
-        const fetchCsrfToken = async () => {
-            try {
-                await axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie', {
-                    withCredentials: true,
-                });
-            } catch (error) {
-                console.error('Error fetching CSRF token:', error);
-            }
-        }
-
-        fetchCsrfToken();
-    }, []);
-
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/register', data, {
+            const response = await axios.post('http://127.0.0.1:8000/api/v1/register', data, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                withCredentials: true,
             });
 
             console.log(response.data);
