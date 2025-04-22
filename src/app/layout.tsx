@@ -1,5 +1,6 @@
 import "./globals.css";
 import React from "react";
+import Header from "@/components/header/Header";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -10,9 +11,10 @@ export default function RootLayout({
       <body
 
       >
+      <Header></Header>
         {children}
       </body>
     </html>
   );
 }
-//test commit
+

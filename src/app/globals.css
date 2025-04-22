@@ -1,2 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+    --font-display: "Satoshi", "sans-serif";
+    --color-black: oklch(0.164 0.007 17.871);
+    --color-white: oklch(0.927 0.017 110.299);
+    --color-orange: oklch(0.625 0.152 55.223);
+    --color-input: rgba(0, 0, 0, 0.1);
+}
